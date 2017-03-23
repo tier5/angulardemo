@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html data-ng-app="demoApp">
+    <head>
+        <title>Learning Angular</title>
+    </head>
+    <body>
+        <div data-ng-view>
+            <!-- PlaceHolder for Views -->
+        </div>
+        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+        <script src="https://code.angularjs.org/1.2.0rc1/angular-route.js"></script>
+        <script src="scripts/modules/demoApp.js"></script>
+        <script src="scripts/routes/routes.js"></script>        
+        <script src="scripts/factories/simpleFactory.js"></script>
+        <script src="scripts/controllers/simpleController.js"></script>
+<!--         <script>
+            var demoApp = angular.module('demoApp',['ngRoute']);
+
+            demoApp.config(function($routeProvider) {
+                $routeProvider
+                    .when('/view1',
+                    {
+                        controller: 'SimpleController',
+                        templateUrl: 'partials/view1.html'
+                    })
+                    .when('/view2',
+                    {
+                        controller: 'SimpleController',
+                        templateUrl: 'partials/view2.html'
+                    })
+                    .otherwise( { redirectTo: '/view1' } );
+            });
+
+            demoApp.factory('SimpleFactory', function(){
+                var customers = [
+                    {name:'Jon Smith',city:'Kolkata'}, 
+                    {name:'Jon Doe',city:'Cuttack'}, 
+                    {name:'Jane Doe',city:'Khadagpur'} 
+                ];
+                var factory = {};
+                factory.getCustomers = function() {
+                    return customers;
+                }
+                return factory;
+            });
+
+            demoApp.controller('SimpleController', function($scope, SimpleFactory) {
+                $scope.customers = [];
+                init();
+                function init(){
+                    $scope.customers = SimpleFactory.getCustomers(); 
+                }
+                $scope.addCustomer = function (){
+                    $scope.customers.push(
+                        {
+                            name: $scope.newCustomer.name, 
+                            city: $scope.newCustomer.city
+                        }
+                    );
+                };
+            });
+        </script> -->
+    </body>
+</html>
