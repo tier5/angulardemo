@@ -22,10 +22,8 @@
         <h1 class="new" ng-class="{'current':name=='sudipta','other-class':font==20}">Hello <span ng-if="name">{{name}}</span><span ng-if="!name">World</span></h1>
         <input type="text" ng-model="name">
         <input type="text" ng-model="font">
-        <div class="" ng-controller="BlogListController">
-            <h1 class="new">{{title}}</h1>
-            <button ng-click="someclicks()">Click me</button>
-        </div>
+        <blog-list></blog-list>
+       
         
 
         <script src="./js/app/app.module.js"></script>
