@@ -1,0 +1,54 @@
+<div class="container">
+    <div class="jumbotron">
+        <div class="row"> 
+            <div class="col-sm-3"></div>
+            <div class="col-sm-6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <strong>Existing Customers</strong>
+                    </div>
+                    <!-- /.panel-heading -->
+                    <div class="panel-body">
+                        <div class="table-responsive">
+                            <table class="table table-striped">
+                                <thead>
+                                    <tr>
+                                        <th>Name</th>
+                                        <th>City</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr class="table table-striped" data-ng-repeat="customer in customers">
+                                        <td>{{ customer.name | lowercase }}</td>
+                                        <td>{{ customer.city | lowercase }}</td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                        </div>
+                        <!-- /.table-responsive -->
+                    </div>
+                    <!-- /.panel-body -->
+                </div>
+                <form>
+                    <div>
+                        <div class="input-group">
+                            <span class="input-group-addon">Name</i></span>
+                            <input type="text" class="form-control" placeholder="Enter Customer's Details" data-ng-model="newCustomer.name">
+                            <span class="input-group-addon">City</i></span>
+                            <input type="text" class="form-control" placeholder="Enter Customer's Details" data-ng-model="newCustomer.city">
+                        </div>
+                    </div>
+                    <br/>
+                    <div>
+                        <div style="text-align: center;">
+                            <button type="button" class="btn btn-success" data-ng-click="addCustomerFirst()">Add To First</button>
+                            <button type="reset" class="btn btn-warning">Reset</button>
+                            <button type="button" class="btn btn-success" data-ng-click="addCustomerLast()">Add To Last</button>  
+                        </div>
+                    </div>
+                </form>
+            </div>
+            <div class="col-sm-3"></div>
+        </div>
+    </div>
+</div>
