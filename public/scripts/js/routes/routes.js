@@ -3,17 +3,17 @@ demoApp.config(function($routeProvider) {
     $routeProvider
         .when('/view-customer',
         {
-            controller: 'SimpleController',
+            controller: 'ViewsController',
             templateUrl: 'partials/viewCustomer.html'
         })
         .when('/add-customer',
         {
-            controller: 'SimpleController',
+            controller: 'AddsController',
             templateUrl: 'partials/addCustomer.html'
         })
         .when('/delete-customer',
         {
-            controller: 'SimpleController',
+            controller: 'DeletesController',
             templateUrl: 'partials/deleteCustomer.html'
         })
         .otherwise( { redirectTo: '/view-customer' } );

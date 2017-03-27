@@ -33,14 +33,14 @@
                     <div>
                         <div class="input-group">
                             <span class="input-group-addon">Name</i></span>
-                            <input type="text" class="form-control" placeholder="Enter Customer's Details" data-ng-model="newCustomer.name">
+                            <input id="c_name" type="text" class="form-control" placeholder="Enter Customer's Details" data-ng-model="newCustomer.name">
                             <span class="input-group-addon">City</i></span>
-                            <input type="text" class="form-control" placeholder="Enter Customer's Details" data-ng-model="newCustomer.city">
+                            <input id="c_city" type="text" class="form-control" placeholder="Enter Customer's Details" data-ng-model="newCustomer.city">
                         </div>
                     </div>
                     <br/>
                     <div>
-                        <div style="text-align: center;">
+                        <div class="text-center">
                             <button type="button" class="btn btn-success" data-ng-click="addCustomerFirst()">Add To First</button>
                             <button type="reset" class="btn btn-warning">Reset</button>
                             <button type="button" class="btn btn-success" data-ng-click="addCustomerLast()">Add To Last</button>  

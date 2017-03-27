@@ -15,12 +15,18 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>City</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr class="table table-striped" data-ng-repeat="customer in customers">
+                                    <tr id="{{'row'+$index}}" class="table table-striped" data-ng-repeat="customer in customers">
                                         <td>{{ customer.name | lowercase }}</td>
                                         <td>{{ customer.city | lowercase }}</td>
+                                        <td>
+                                            <button type="button" class="btn btn-danger" data-ng-click="deleteCustomer($index)">
+                                                Delete
+                                            </button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -28,12 +34,6 @@
                         <!-- /.table-responsive -->
                     </div>
                     <!-- /.panel-body -->
-                </div>
-                <div>
-                    <div style="text-align: center;">
-                        <button type="button" class="btn btn-danger" data-ng-click="deleteFirstCustomer()">Delete From First</button>
-                        <button type="button" class="btn btn-danger" data-ng-click="deleteLastCustomer()">Delete From Last</button>  
-                    </div>
                 </div>
             </div>
             <div class="col-sm-3"></div>
