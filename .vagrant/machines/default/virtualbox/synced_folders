@@ -1,0 +1,1 @@
+{"virtualbox":{"/var/www/html":{"mount_options":["dmode=774","fmode=775"],"guestpath":"/var/www/html","hostpath":"/var/www/html/LaravelAPI","disabled":false,"__vagrantfile":true}}}
