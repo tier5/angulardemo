@@ -14,16 +14,16 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>City</th>
+                                        <th>Email</th>
                                         <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr id="{{'row'+$index}}" class="table table-striped" data-ng-repeat="customer in customers">
                                         <td>{{ customer.name | lowercase }}</td>
-                                        <td>{{ customer.city | lowercase }}</td>
+                                        <td>{{ customer.email | lowercase }}</td>
                                         <td>
-                                            <button type="button" class="btn btn-danger" data-ng-click="deleteCustomer($index)">
+                                            <button type="button" class="btn btn-danger" data-ng-click="deleteCustomer(customer.id)">
                                                 Delete
                                             </button>
                                         </td>

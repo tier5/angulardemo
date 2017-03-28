@@ -1,5 +1,5 @@
 demoApp.service('SimpleService', function(SimpleFactory){
-     /** Function to add customer at the start of customers array */
+    /** Function to add customer at the start of customers array */
     this.addCustomerFirst = function (name, city){
             factory.customers.unshift(
                 {
@@ -11,7 +11,7 @@ demoApp.service('SimpleService', function(SimpleFactory){
             this.msg = "Success!";            
     };
 
-     /** Function to add customer at the end of customers array */
+    /** Function to add customer at the end of customers array */
     this.addCustomerLast = function (name, city){
         factory.customers.push(
             {

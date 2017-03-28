@@ -19,13 +19,13 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>City</th>
+                                        <th>Email</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="table table-striped" data-ng-repeat="customer in customers | filter:filter.name | orderBy:'name'">
                                         <td>{{ customer.name | lowercase }}</td>
-                                        <td>{{ customer.city | lowercase }}</td>
+                                        <td>{{ customer.email | lowercase }}</td>
                                     </tr>
                                 </tbody>
                             </table>

@@ -1,21 +1,42 @@
 /** Register a Controller */
-demoApp.controller('DeletesController', function($scope, SimpleFactory) {
+demoApp.controller('DeletesController', function($scope, $rootScope, DataService) {
     $scope.customers = [];
-    $scope.temp="";
-    //to show or hide navigation in particular page
-    //$rootScope.showNavigation = false;
-    init();
-    function init(){
-        $scope.customers = SimpleFactory.getCustomers(); 
+    $rootScope.showPop = false;
+
+    /** Initial Method */   
+    $scope.init = function (){
+        $scope.getCustomers();
     }
 
-    /** Function to delete customer */
-    $scope.deleteCustomer = function ($index){
-        var element = document.getElementById("row"+$index);
-        element.style.setProperty("text-decoration", "line-through"); 
-        var name = $scope.customers[$index].name;
-        var city = $scope.customers[$index].city;
-        $scope.customers.splice($index, 1);
-        alert("[ "+name +" & "+ city +" ] Deleted"); // Display recently deleted data
-    };
+    /** Function to get list of all customers from DataService */
+    $scope.getCustomers = function(){
+        DataService.getData()
+        .then(function(response){
+            $scope.customers = DataService.list;
+        }, function(error){
+            //
+        });
+    }
+
+    /** Function to add a new customer */
+    $scope.addCustomers = function(newCustomer){
+        DataService.addData($scope.newCustomer)
+        .then(function(response){
+            $scope.customers = DataService.list;
+        }, function(error){
+            //
+        });
+    }
+
+    /** Function to delete a spcific customer */
+    $scope.deleteCustomer = function(id){
+        DataService.deleteData(id)
+        .then(function(response){
+            $scope.getCustomers();
+        }, function(error){
+            //
+        });
+    }
+       
+    $scope.init();
 });
