@@ -1,17 +1,18 @@
 /** Register a Controller */
 demoApp.controller('MainsController', function($scope, $rootScope, SimpleFactory){
     $rootScope.showPop = false;
-    // // hide popup method
+    // hide popup method
     $rootScope.hidePop = function(){
         $rootScope.showPop = false;
     };
+
     // Show popup
-    $rootScope.showPopUp = function(success, msg){
+    $rootScope.showPopUp = function(status, msg){
         $rootScope.showPop = true;
         $rootScope.msg = msg;
-        $rootScope.success = success;
+        $rootScope.status = status;
     };
 });
-demoApp.run(function($rootScope) {
-    $rootScope.color = 'blue';
-});
+// demoApp.run(function($rootScope) {
+//     $rootScope.color = 'blue';
+// });

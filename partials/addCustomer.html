@@ -14,13 +14,13 @@
                                 <thead>
                                     <tr>
                                         <th>Name</th>
-                                        <th>City</th>
+                                        <th>Email</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="table table-striped" data-ng-repeat="customer in customers">
                                         <td>{{ customer.name | lowercase }}</td>
-                                        <td>{{ customer.city | lowercase }}</td>
+                                        <td>{{ customer.email | lowercase }}</td>
                                     </tr>
                                 </tbody>
                             </table>
@@ -33,17 +33,16 @@
                     <div>
                         <div class="input-group">
                             <span class="input-group-addon">Name</i></span>
-                            <input id="c_name" type="text" class="form-control" placeholder="Enter Customer's Details" data-ng-model="newCustomer.name">
-                            <span class="input-group-addon">City</i></span>
-                            <input id="c_city" type="text" class="form-control" placeholder="Enter Customer's Details" data-ng-model="newCustomer.city">
+                            <input id="c_name" type="text" class="form-control" placeholder="Enter Customer's Name" data-ng-model="newCustomer.name">
+                            <span class="input-group-addon">Email</i></span>
+                            <input id="c_city" type="text" class="form-control" placeholder="Enter Customer's Email" data-ng-model="newCustomer.email">
                         </div>
                     </div>
                     <br/>
                     <div>
                         <div class="text-center">
-                            <button type="button" class="btn btn-success" data-ng-click="addCustomerFirst()">Add To First</button>
-                            <button type="reset" class="btn btn-warning">Reset</button>
-                            <button type="button" class="btn btn-success" data-ng-click="addCustomerLast()">Add To Last</button>  
+                            <button type="button" class="btn btn-success" data-ng-click="addCustomer()">Add Customer</button>
+                            <button type="reset" class="btn btn-warning">Reset Details</button>
                         </div>
                     </div>
                 </form>

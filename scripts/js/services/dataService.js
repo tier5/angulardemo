@@ -1,6 +1,6 @@
 demoApp.service('DataService', function($http, $q){
     var data =this;
-    data.list = {};
+    data.list = {}; // Store data in an array
 
     /** Function to Get Data */
     data.getData = function(){
@@ -18,9 +18,8 @@ demoApp.service('DataService', function($http, $q){
         return defer.promise;
     }
 
-     /** Function to Add Data */
+     /** Function to Add New Data */
     data.addData = function(data){
-
         var defer = $q.defer();
         $http.post('http://laravel.api/api/add-data', data)
         .success(function(response){
@@ -33,7 +32,7 @@ demoApp.service('DataService', function($http, $q){
         return defer.promise;
     }
 
-     /** Function to Delete Data */
+     /** Function to Delete Existing Data */
     data.deleteData = function(id){
 
         var defer = $q.defer();

@@ -6,15 +6,20 @@ demoApp.config(function($routeProvider) {
             controller: 'ViewsController',
             templateUrl: 'partials/viewCustomer.html'
         })
+        .when('/sign-in',
+        {
+            controller: 'HomeController',
+            templateUrl: 'partials/signIn.html'
+        })
+        .when('/sign-up',
+        {
+            controller: 'HomeController',
+            templateUrl: 'partials/signUp.html'
+        })
         .when('/add-customer',
         {
             controller: 'AddsController',
             templateUrl: 'partials/addCustomer.html'
         })
-        .when('/delete-customer',
-        {
-            controller: 'DeletesController',
-            templateUrl: 'partials/deleteCustomer.html'
-        })
-        .otherwise( { redirectTo: '/view-customer' } );
+        .otherwise( { redirectTo: '/sign-in' } );
 });

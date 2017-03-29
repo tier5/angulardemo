@@ -1,0 +1,71 @@
+<div class="container">
+    <div class="custom-center-container">
+        <div class="row">   
+            <div class="col-md-3"></div>
+            <div class="col-md-6">
+                <form class="form">
+                    <!-- Users's Name -->
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-user"></i></span>
+                        <input id="name" type="text" class="form-control" required placeholder="Enter Name" data-ng-model="request.name">
+                    </div>
+                    <br/>
+
+                    <!-- Users's Sex -->
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                        <input  type="radio" name="gender" value="1" checked> Male
+                        <input  type="radio" name="gender" value="2"> Female
+                        <input  type="radio" name="gender" value="0"> Other
+                    </div>
+                    <br/>
+
+                    <!-- Users's Name -->
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
+                        <select  class="styled-select" title="Select Desired Team">
+                            <option>Select Desired Team</option>
+                            <option value="saab">Saab</option>
+                            <option value="fiat">Fiat</option>
+                            <option value="audi">Audi</option>
+                        </select>
+                    </div>
+                    <br/>
+
+                    <!-- Users's Email Id -->
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-envelope"></i></span>
+                        <input id="name" type="email" class="form-control" required placeholder="Enter Email" data-ng-model="request.email">
+                    </div>
+                    <br/>
+
+                    <!-- Users's Password -->
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="password" type="password" class="form-control" required placeholder="Enter Password" data-ng-model="request.password">
+                    </div>
+                    <br/>
+
+                    <!-- Users's Confirm Password -->
+                    <div class="input-group">
+                        <span class="input-group-addon"><i class="glyphicon glyphicon-lock"></i></span>
+                        <input id="password" type="password" class="form-control" required placeholder="Confirm Password" data-ng-model="request.confirmPassword">
+                    </div>
+                    <br/>
+
+                    <!-- Action Buttons -->
+                    <div>
+                        <button class="btn btn-group btn-success pull-right">
+                            Sign Up
+                            <i class="glyphicon glyphicon-user"></i>
+                        </button>
+                        <button class="btn btn-warning pull-left" type="reset">
+                            Reset Changes
+                        </button>
+                    </div>
+                </form>
+            </div>
+            <div class="col-md-3"></div>
+        </div>
+    </div>
+</div>

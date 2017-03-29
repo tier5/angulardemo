@@ -6,13 +6,27 @@
 
         <title>Learning Angular</title>
         <!-- Custom CSS -->
-        <link rel="stylesheet" type="text/css" href="public/scripts/css/style.css">
+        <link rel="stylesheet" type="text/css" href="scripts/css/style.css">
         <!-- Latest compiled and minified CSS -->
-        <link type="text/css" rel="stylesheet" href="public/cdn/bootstrap/css/bootstrap.min.css">
-        <link type="text/css" rel="stylesheet" href="public/cdn/bootstrap/css/bootstrap-theme.min.css">
+        <link type="text/css" rel="stylesheet" href="cdn/bootstrap/css/bootstrap.min.css">
+        <link type="text/css" rel="stylesheet" href="cdn/bootstrap/css/bootstrap-theme.min.css">
     </head>
     <body>
-        <nav class="navbar navbar-inverse"> <!-- ng-if="showNavigation" -->
+        <!-- Navbar for logged in users -->
+        <nav class="navbar navbar-inverse" ng-if="showHomeNavigation">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="#/sign-in">Tier5 Leads</a>
+                </div>
+                <ul class="nav navbar-nav navbar-right">
+                    <li><a href="#/sign-up"><span class="glyphicon glyphicon-user"></span> Sign Up</a></li>
+                    <li><a href="#/sign-in"><span class="glyphicon glyphicon-log-in"></span> Sign In</a></li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Navbar for logged in users -->
+        <nav class="navbar navbar-inverse" ng-if="showViewNavigation"> <!-- ng-if="showNavigation" -->
             <div class="container-fluid">
                 <div class="navbar-header">
                     <a class="navbar-brand" href="#/view-customer">Learning Angular</a>
@@ -20,38 +34,40 @@
                 <ul class="nav navbar-nav navbar-right">
                     <li><a href="#/view-customer">View Customer</a></li>
                     <li><a href="#/add-customer">Add Customer</a></li>
-                    <li><a href="#/delete-customer">Delete Customer</a></li>
                 </ul>
             </div>
         </nav>
-        <div ng-class="success? 'alert success': 'alert'" ng-if="showPop">
+
+        <!-- Popup-->
+        <div ng-class="status ? 'alert success': 'alert'" ng-if="showPop">
             <span class="closebtn" ng-click="hidePop()">&times;</span>  
             <strong>{{ msg }}</strong>
         </div> 
+
         <div data-ng-view>
             <!-- PlaceHolder for Views -->           
         </div>
 
         <!-- jQuery library -->
-        <script type="text/javascript" src="public/cdn/bootstrap/js/jquery.min.js"></script>
+        <script type="text/javascript" src="cdn/bootstrap/js/jquery.min.js"></script>
         <!-- Latest compiled JavaScript -->
-        <script type="text/javascript" src="public/cdn/bootstrap/js/bootstrap.min.js"></script>
+        <script type="text/javascript" src="cdn/bootstrap/js/bootstrap.min.js"></script>
         <!-- Angular 1.2 CDN and Routes Module -->
-        <script type="text/javascript" src="public/cdn/angular/angular.min.js"></script>
-        <script type="text/javascript" src="public/cdn/angular/angularRoute.js"></script>
+        <script type="text/javascript" src="cdn/angular/angular.min.js"></script>
+        <script type="text/javascript" src="cdn/angular/angularRoute.js"></script>
         <!-- Module -->
-        <script type="text/javascript" src="public/scripts/js/modules/demoApp.js"></script>
+        <script type="text/javascript" src="scripts/js/modules/demoApp.js"></script>
         <!-- Registered Routes -->
-        <script type="text/javascript" src="public/scripts/js/routes/routes.js"></script>
+        <script type="text/javascript" src="scripts/js/routes/routes.js"></script>
         <!-- Factory Data -->        
-        <script type="text/javascript" src="public/scripts/js/factories/simpleFactory.js"></script>
+        <script type="text/javascript" src="scripts/js/factories/simpleFactory.js"></script>
         <!-- Services -->
-        <script type="text/javascript" src="public/scripts/js/services/simpleService.js"></script>
-        <script type="text/javascript" src="public/scripts/js/services/dataService.js"></script>
+        <script type="text/javascript" src="scripts/js/services/simpleService.js"></script>
+        <script type="text/javascript" src="scripts/js/services/dataService.js"></script>
         <!--Controllers-->
-        <script type="text/javascript" src="public/scripts/js/controllers/mainsController.js"></script>
-        <script type="text/javascript" src="public/scripts/js/controllers/viewsController.js"></script>
-        <script type="text/javascript" src="public/scripts/js/controllers/addsController.js"></script>
-        <script type="text/javascript" src="public/scripts/js/controllers/deletesController.js"></script>
+        <script type="text/javascript" src="scripts/js/controllers/homeController.js"></script>
+        <script type="text/javascript" src="scripts/js/controllers/mainsController.js"></script>
+        <script type="text/javascript" src="scripts/js/controllers/viewsController.js"></script>
+        <script type="text/javascript" src="scripts/js/controllers/addsController.js"></script>
     </body>
 </html>

@@ -5,7 +5,7 @@
             <div class="col-sm-6">
                 <div class="input-group">
                     <span class="input-group-addon"><i class="glyphicon glyphicon-search"></i></span>
-                    <input type="text" class="form-control" placeholder="Find Customer By Name or City" data-ng-model="filter.name">
+                    <input type="text" class="form-control" placeholder="Find Customer By Name or Email" data-ng-model="filter.name">
                 </div>
                 <br/>
                  <div class="panel panel-default">
@@ -20,12 +20,21 @@
                                     <tr>
                                         <th>Name</th>
                                         <th>Email</th>
+                                        <th>Action</th>
                                     </tr>
                                 </thead>
                                 <tbody>
                                     <tr class="table table-striped" data-ng-repeat="customer in customers | filter:filter.name | orderBy:'name'">
                                         <td>{{ customer.name | lowercase }}</td>
                                         <td>{{ customer.email | lowercase }}</td>
+                                        <td>
+                                            <button class="btn btn-warning">
+                                                Update
+                                            </button>
+                                            <button type="button" class="btn btn-danger" data-ng-click="deleteCustomer(customer.id)">
+                                                Delete
+                                            </button>
+                                        </td>
                                     </tr>
                                 </tbody>
                             </table>
