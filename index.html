@@ -44,8 +44,11 @@
             <strong>{{ msg }}</strong>
         </div> 
 
-        <div data-ng-view>
-            <!-- PlaceHolder for Views -->           
+
+        <div class="container">
+            <div data-ng-view>
+                <!-- PlaceHolder for Views -->           
+            </div>
         </div>
 
         <!-- jQuery library -->
@@ -62,11 +65,14 @@
         <!-- Factory Data -->        
         <script type="text/javascript" src="scripts/js/factories/simpleFactory.js"></script>
         <!-- Services -->
+        <script type="text/javascript" src="scripts/js/services/homeService.js"></script>
+        <script type="text/javascript" src="scripts/js/services/adminService.js"></script>
         <script type="text/javascript" src="scripts/js/services/simpleService.js"></script>
         <script type="text/javascript" src="scripts/js/services/dataService.js"></script>
         <!--Controllers-->
-        <script type="text/javascript" src="scripts/js/controllers/homeController.js"></script>
         <script type="text/javascript" src="scripts/js/controllers/mainsController.js"></script>
+        <script type="text/javascript" src="scripts/js/controllers/homeController.js"></script>
+        <script type="text/javascript" src="scripts/js/controllers/adminController.js"></script>
         <script type="text/javascript" src="scripts/js/controllers/viewsController.js"></script>
         <script type="text/javascript" src="scripts/js/controllers/addsController.js"></script>
     </body>

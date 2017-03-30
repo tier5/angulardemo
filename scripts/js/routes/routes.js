@@ -21,5 +21,10 @@ demoApp.config(function($routeProvider) {
             controller: 'AddsController',
             templateUrl: 'partials/addCustomer.html'
         })
+        .when('/admin/dashboard',
+        {
+            controller: 'AdminController',
+            templateUrl: 'partials/admin.html'
+        })
         .otherwise( { redirectTo: '/sign-in' } );
 });

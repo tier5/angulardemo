@@ -1,8 +1,9 @@
 /** Register a Controller */
-demoApp.controller('HomeController', function($scope, $rootScope, HomeService, $timeout){
+demoApp.controller('AdminController', function($scope, $rootScope, AdminService, $timeout){
     $rootScope.showPop = false;
-    $rootScope.showViewNavigation = false;
-    $rootScope.showHomeNavigation = true;
+    $rootScope.showViewNavigation = true;
+    $rootScope.showHomeNavigation = false;
+    #scope.users = {};
     // hide popup method
     $rootScope.hidePop = function(){
         $rootScope.showPop = false;
@@ -17,15 +18,15 @@ demoApp.controller('HomeController', function($scope, $rootScope, HomeService, $
 
     /** Initial Method */   
     $scope.init = function (){
-        $scope.getUsers();
+        $scope.getTeamLeads();
     }
 
-    /** Function to get list of all Team Names from HomeService */
-    $scope.getUsers = function(){
-        HomeService.getData()
+    /** Function to get list of all Team Names from AdminService */
+    $scope.getTeamLeads = function(){
+        AdminService.getData()
         .then(function(response){
         //    console.log(response);
-            $scope.users = HomeService.list;
+            $scope.users = AdminService.list;
         }, function(error){
             //
         });
@@ -34,7 +35,7 @@ demoApp.controller('HomeController', function($scope, $rootScope, HomeService, $
     /** Function to sign up new user */
     $scope.signUpUser = function(request){ 
     //    console.log($scope.request);       
-        HomeService.addData($scope.request)
+        AdminService.addData($scope.request)
         .then(function(response){
             delete $scope.request;
         //    $scope.request();
@@ -54,7 +55,7 @@ demoApp.controller('HomeController', function($scope, $rootScope, HomeService, $
     /** Function to sign in existing users */
     $scope.signInUser = function(request){ 
     //    console.log($scope.request);       
-        HomeService.checkData($scope.request)
+        AdminService.checkData($scope.request)
         .then(function(response){
             delete $scope.request;
         //    $scope.request();

@@ -14,20 +14,16 @@
                     <!-- Users's Sex -->
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <input  type="radio" name="gender" value="1" checked> Male
-                        <input  type="radio" name="gender" value="2"> Female
-                        <input  type="radio" name="gender" value="0"> Other
+                        <input  type="radio" name="gender" value="1" data-ng-model="request.sex"> Male
+                        <input  type="radio" name="gender" value="0" data-ng-model="request.sex"> Female
                     </div>
                     <br/>
 
                     <!-- Users's Name -->
                     <div class="input-group">
                         <span class="input-group-addon"><i class="glyphicon glyphicon-list"></i></span>
-                        <select  class="styled-select" title="Select Desired Team">
-                            <option>Select Desired Team</option>
-                            <option value="saab">Saab</option>
-                            <option value="fiat">Fiat</option>
-                            <option value="audi">Audi</option>
+                        <select  id="teamName" data-ng-model="request.teamId" class="styled-select" title="Select Desired Team">
+                            <option data-ng-repeat="user in users" value="{{ user.teamId }}">{{ user.teamName }}</option>
                         </select>
                     </div>
                     <br/>
@@ -55,7 +51,7 @@
 
                     <!-- Action Buttons -->
                     <div>
-                        <button class="btn btn-group btn-success pull-right">
+                        <button class="btn btn-group btn-success pull-right" data-ng-click="signUpUser()">
                             Sign Up
                             <i class="glyphicon glyphicon-user"></i>
                         </button>

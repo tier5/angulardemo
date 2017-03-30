@@ -23,31 +23,28 @@ demoApp.controller('AddsController', function($scope, $rootScope, DataService, $
     }
 
     /** Function to add a new customer */
-    $scope.addCustomer = function(newCustomer){
-        
-    /*    if($scope.newCustomer.name && $scope.newCustomer.email) {*/
-        
-            DataService.addData($scope.newCustomer)
-            .then(function(response){
-                delete $scope.newCustomer;
-                $scope.getCustomers();
-                $rootScope.showPopUp(response.statusIs, response.message);     
-                $timeout(function(){
-                    $rootScope.hidePop();
-                }, 5000);
-            }, function(error){
-                delete $scope.newCustomer;
-                $rootScope.showPopUp(false, "Enter Proper Data!");     
-                $timeout(function(){
-                    $rootScope.hidePop();
-                }, 5000);
-            });
-/*        } else {
+    $scope.addCustomer = function(newCustomer){     
+        DataService.addData($scope.newCustomer)
+        .then(function(response){
+            delete $scope.newCustomer;
+            $scope.getCustomers();
+            $rootScope.showPopUp(response.statusIs, response.message);     
+            $timeout(function(){
+                $rootScope.hidePop();
+            }, 5000);
+        }, function(error){
+            delete $scope.newCustomer;
             $rootScope.showPopUp(false, "Enter Proper Data!");     
-                $timeout(function(){
-                    $rootScope.hidePop();
-                }, 5000);
-        }*/
+            $timeout(function(){
+                $rootScope.hidePop();
+            }, 5000);
+        });
+/*        } else {
+        $rootScope.showPopUp(false, "Enter Proper Data!");     
+            $timeout(function(){
+                $rootScope.hidePop();
+            }, 5000);
+    }*/
     }
    
    // Calling Initial Method
