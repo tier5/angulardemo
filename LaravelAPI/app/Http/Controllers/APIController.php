@@ -24,7 +24,7 @@ class APIController extends Controller
         if($findEmail) {
             return response()->json([
                 'statusIs' => false,
-                'error' => "Email Already Added!"
+                'message' => "Email Already Added!"
             ]);       
         } else {
             $data->name = $request->name;
@@ -33,12 +33,12 @@ class APIController extends Controller
             if($data->save()) {
                 return response()->json([
                     'statusIs' => true,
-                    'error' => "New Data Added!"
+                    'message' => "New Data Added!"
                 ]);
             } else {
                     return response()->json([
                     'statusIs' => false,
-                    'error' => "Something Unexpected Happened!"
+                    'message' => "Something Unexpected Happened!"
                 ]);
             }
         }
@@ -55,35 +55,35 @@ class APIController extends Controller
             if($finduser->save()) {
                 return response()->json([
                     'statusIs' => true,
-                    'error' => "Data Updated!"
+                    'message' => "Data Updated!"
                 ]);
             } else {
                     return response()->json([
                     'statusIs' => false,
-                    'error' => "Something Unexpected Happened!"
+                    'message' => "Something Unexpected Happened!"
                 ]);
             }
         } else {
             return response()->json([
                 'statusIs' => false,
-                'error' => "Data Not Found!"
+                'message' => "Data Not Found!"
             ]); 
         }
     }
 
-    public function deteteData(Request $request, $id)
+    public function deleteData(Request $request, $id)
     {
          $findUser = User::find($id);
 
          if($findUser->delete()){
             return response()->json([
                 'statusIs' => true,
-                'error' => "Data Deleted!"
+                'message' => "Data Deleted!"
             ]);
          } else {
             return response()->json([
                 'statusIs' => false,
-                'error' => "Something Unexpected Happened!"
+                'message' => "Something Unexpected Happened!"
             ]);
          }
     }
