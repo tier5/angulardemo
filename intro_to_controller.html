@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Learn Angular Second Time</title>
+
+</head>
+<body data-ng-app="LearnAngular">
+	<div data-ng-controller="myController">
+		<h3>My First Controller</h3>
+			<input type="text" data-ng-model="searchName" placeholder="Search">
+			<ul>
+				<li data-ng-repeat="cust in customers | filter:searchName">
+					{{cust.name}}
+				</li>
+			</ul>
+	</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+
+	<script type="text/javascript">
+		var LearnAngular = angular.module('LearnAngular', []);
+		LearnAngular.controller('myController', function($scope){
+			$scope.customers = [
+				{name : 'Subhankar Roy' , city: 'Nabadwip'},
+				{name : 'Samim Almamun' , city: 'Burdwan'},
+				{name : 'Malay Dhar' , city: 'Fulia'},
+				{name : 'Prodipto Dhar' , city: 'Kolkata'},
+				{name : 'Santanu Dhar' , city: 'Kolkata'},
+			];
+		});
+		// function myController($scope){
+		// 	$scope.customers = [
+		// 		{name : 'Subhankar Roy' , city: 'Nabadwip'},
+		// 		{name : 'Samim Almamun' , city: 'Burdwan'},
+		// 		{name : 'Malay Dhar' , city: 'Fulia'},
+		// 		{name : 'Prodipto Dhar' , city: 'Kolkata'},
+		// 		{name : 'Santanu Dhar' , city: 'Kolkata'},
+		// 	];
+		// }
+	</script>
+</body>
+</html>
