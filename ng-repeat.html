@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Learn Angular Second Time</title>
+
+</head>
+<body data-ng-app="">
+	<!--Directive ng-repeat v1.0 -->
+	<div class="container" data-ng-init = "fav_rappers=[{name: '21 Savage', city:'Atlanta'}, {name: 'Young Thug', city:'Atlanta'}, {name: 'Travis Scott', city:'Georgia'}]">
+	</div>
+		<h3>Looping with ng-repeat directive</h3>
+		<input type="text" data-ng-model="m_name">
+		<!-- <ul>
+			<li data-ng-repeat="name in fav_rappers">{{name}}</li>
+		</ul> -->
+		<!--ng repeat with filters-->
+		<!--name using uppercase-->
+		<ul>
+			<li data-ng-repeat="rap_filter in fav_rappers | filter : m_name | orderBy: 'name'">{{rap_filter.name}}</li>
+		</ul>
+		<ul>
+			<li data-ng-repeat="rap in fav_rappers">{{rap.name | uppercase}}</li>
+		</ul>
+		<!--name & city using uppercase-->
+		<ul>
+			<li data-ng-repeat="rap2 in fav_rappers">{{rap2.name}} is from <b>{{rap2.city | lowercase}}</b></li>
+		</ul>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.6.5/angular.min.js"></script>
+</body>
+</html>

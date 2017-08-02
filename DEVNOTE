@@ -1,2 +1,5 @@
 Lessons : 
-1) Directive basic  ng-app : v0.1
+1) Directive basic  
+	1) ng-app : v0.1
+	2) ng-repeat : v0.2
+	3) ng-repat with filters like orderBy, particular keyword : v0.3
