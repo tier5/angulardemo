@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+</head>
+<body>
+<h1>view 1 routeing through angular</h1>
+<a href="#/view2">view2</a><br/>
+<ul>
+	<li data-ng-repeat="cus in customers">{{cus.name}} belongs to {{cus.city}}</li>
+</ul>
+<h1>Filter Through customers</h1>
+<input type="text" data-ng-model="searchCustomer" placeholder="search"/>
+<ul>
+	<li data-ng-repeat = "cus2 in customers | filter:searchCustomer">{{cus2.name}}</li>
+</ul>
+
+<form>
+	<h4>Add Customers</h4><br/>
+	<input type="text" data-ng-model="customer.name" placeholder="enter customer name"><br/><br/>
+	<input type="text" data-ng-model="customer.city" placeholder="enter customer city"><br/>
+	<br/>
+	<button data-ng-click="addCustomer();">Add Customer</button>
+</form>
+</body>
+</html>
