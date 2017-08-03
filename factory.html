@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Learn Angular Second Time</title>
+
+</head>
+<body data-ng-app="LearnAngular">
+	<div data-ng-view="">
+
+	</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.32/angular.min.js"></script>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/angularjs/1.2.0rc1/angular-route.min.js"></script>
+
+	<script type="text/javascript">
+		var LearnAngular = angular.module('LearnAngular', ['ngRoute']);
+    //var fac = angular.module('factory', []);
+    /*****************************routes*****************************/
+
+		LearnAngular.config(function($routeProvider){
+			$routeProvider.when('/view1',{
+				controller : 'myController',
+				templateUrl: 'Partials/view1.html'
+			})
+			.when('/view2',{
+				controller : 'myController',
+				templateUrl : 'Partials/view2.html'
+			})
+			.otherwise({redirectTo: '/view1'})
+		});
+
+    /*********************************factory*************************/
+
+    LearnAngular.factory('cus_factory', function(){
+      var customers = [
+        {name : 'Subhankar Roy' , city: 'Nabadwip'},
+        {name : 'Samim Almamun' , city: 'Burdwan'},
+        {name : 'Malay Dhar' , city: 'Fulia'},
+        {name : 'Prodipto Dhar' , city: 'Kolkata'},
+        {name : 'Santanu Dhar' , city: 'Kolkata'},
+      ];
+      //console.log(this);
+      var cus_factory_data = {};
+      LearnAngular.getCustomers = function() {
+        return customers;
+      };
+      LearnAngular.postCustomers = function(cus_factory_data) {
+
+      };
+      return LearnAngular;
+    });
+
+    /********************controller**************************/
+    
+		LearnAngular.controller('myController', function($scope, cus_factory){
+			$scope.customers = [];
+
+      //initialisation
+      getCustomersList();
+
+      //private function for modulated code
+       function getCustomersList() {
+         $scope.customers = cus_factory.getCustomers();
+       }
+      //[
+			// 	{name : 'Subhankar Roy' , city: 'Nabadwip'},
+			// 	{name : 'Samim Almamun' , city: 'Burdwan'},
+			// 	{name : 'Malay Dhar' , city: 'Fulia'},
+			// 	{name : 'Prodipto Dhar' , city: 'Kolkata'},
+			// 	{name : 'Santanu Dhar' , city: 'Kolkata'},
+			// ];
+
+			$scope.addCustomer = function(){
+				//alert('going right');
+				$scope.customers.push(
+					{name: $scope.customer.name, city: $scope.customer.city}
+				);
+				console.log( $scope.customers);
+			};
+		});
+		// function myController($scope){
+		// 	$scope.customers = [
+		// 		{name : 'Subhankar Roy' , city: 'Nabadwip'},
+		// 		{name : 'Samim Almamun' , city: 'Burdwan'},
+		// 		{name : 'Malay Dhar' , city: 'Fulia'},
+		// 		{name : 'Prodipto Dhar' , city: 'Kolkata'},
+		// 		{name : 'Santanu Dhar' , city: 'Kolkata'},
+		// 	];
+		// }
+	</script>
+</body>
+</html>
