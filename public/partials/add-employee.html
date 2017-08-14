@@ -1,0 +1,42 @@
+<a class="btn btn-sm" style="float: right;" href="#"><i class="fa fa-times" aria-hidden="true"></i></a>
+<div class="form-group">
+	
+</div>
+<form role="form" method="POST" ng-submit="addEmployee()">
+	
+
+	<div class="form-group">
+		<label for="emp_name">Employee Name</label>
+		<input type="text" name="emp_name" id="emp_name" class="form-control" placeholder="Employee Name" required="true" autofocus="true" ng-model="FormData.emp_name">
+	</div>
+	<div class="form-group">
+		<label for="emp_email">Employee Email</label>
+		<input type="email" name="emp_email" id="emp_email" class="form-control" placeholder="Employee Email" required="true" ng-model="FormData.emp_email">
+	</div>
+	<div class="form-group">
+		<label for="ph_no">Phone Number</label>
+		<input type="text" name="ph_no" id="ph_no" class="form-control" placeholder="Employee Name" required="true" ng-model="FormData.ph_no">
+	</div>
+	<div class="form-group">
+		<label for="password">Password</label>
+		<input type="password" name="password" id="password" class="form-control" placeholder="Password" required="true" ng-model="FormData.password">
+	</div>
+	<div class="form-group">
+		<label for="c_password">Confirm Password</label>
+		<input type="password" name="c_password" id="c_password" class="form-control" placeholder="Retype Password" required="true">
+	</div>
+	<div class="form-group">
+		<select class="form-control" name="role" required="true" ng-model="FormData.role">
+			<option value="software developer">Software Developer</option>
+			<option value="hr">Hr</option>
+			<option value="senior developer">Senior Developer</option>
+		</select>
+	</div>
+	<div class="form-group">
+		<textarea class="form-control" name="address" rows="3" required="true" placeholder="type full address" ng-model="FormData.address"></textarea>
+	</div>
+	<button type="submit" id="submit-add-emp" class="btn btn-block btn-primary">Add</button>
+	<div class="form-group">
+		
+	</div>
+</form>

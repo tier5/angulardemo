@@ -16,3 +16,5 @@ use Illuminate\Http\Request;
 Route::middleware('auth:api')->get('/user', function (Request $request) {
     return $request->user();
 });
+Route::any('/employee-listings', 'HomeController@index')->name('getEmployeeListings');
+Route::post('/save-employee', 'HomeController@postSaveEmployee')->name('postSaveEmployee');
