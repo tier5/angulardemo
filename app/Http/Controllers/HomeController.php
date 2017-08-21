@@ -37,7 +37,7 @@ class HomeController extends Controller
     		$employee->phone_number   = $request->ph_no;
     		$employee->address        = $request->address;
     		$employee->role       	  = $request->role;
-    		$employee->password       = $request->password;
+    		$employee->password       = bcrypt($request->password);
 
     		if($employee->save()){
     			return Response::json(array(
@@ -54,7 +54,7 @@ class HomeController extends Controller
 	    			'message' => "Internal Server Error!"
 	    		));
     		}
-    	} catch (Exception $e) {
+    	} catch (\Exception $e) {
     		return Response::json(array(
     			'status' => false,
     			'status_code' => 500,
@@ -62,5 +62,73 @@ class HomeController extends Controller
     			'message' => $e->getMessage()
     		));
     	}
+    }
+    public function postUpdateEmployee(Request $request) {
+        //return $request;
+        try {
+            $find_row = Employee::findOrFail($request->id);
+            if ($find_row) {
+                $find_row->employee_name    = $request->employee_name;
+                $find_row->employee_email   = $request->employee_email;
+                $find_row->phone_number     = $request->phone_number;
+                $find_row->address          = $request->address;
+                if (isset($request->new_password) && strlen($request->new_password)) {
+                    $find_row->password     = bcrypt($request->new_password);
+                }
+                $find_row->role             = $request->role;
+                if ($find_row->save()) {
+                    return Response::json(array(
+                        'status' => true,
+                        'status_code' => 200,
+                        'response' => $find_row,
+                        'message' => "Successfully updated!"
+                    ));
+                } else {
+                    return Response::json(array(
+                        'status' => false,
+                        'status_code' => 500,
+                        'response' => NULL,
+                        'message' => "Internal Server Error!"
+                    ));
+                }
+            }
+        } catch (\Exception $e) {
+            return Response::json(array(
+                'status' => false,
+                'status_code' => 404,
+                'response' => NULL,
+                'message' => $e->getMessage()
+            ));
+        }
+    }
+    public function postDeleteEmployee(Request $request) {
+        //return $request->id;
+        try {
+            $delete_employee = Employee::findOrFail($request->id);
+            if ($delete_employee) {
+                if($delete_employee->delete()) {
+                    return Response::json(array(
+                        'status' => true,
+                        'status_code' => 200,
+                        'response' => $delete_employee,
+                        'message' => "Successfully deleted!"
+                    ));
+                } else {
+                    return Response::json(array(
+                        'status' => false,
+                        'status_code' => 500,
+                        'response' => NULL,
+                        'message' => "Internal Server Error!"
+                    ));
+                }
+            }
+        } catch (\Exception $e) {
+            return Response::json(array(
+                'status' => false,
+                'status_code' => 404,
+                'response' => NULL,
+                'message' => $e->getMessage()
+            ));
+        }
     }
 }

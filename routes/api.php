@@ -18,3 +18,5 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 Route::any('/employee-listings', 'HomeController@index')->name('getEmployeeListings');
 Route::post('/save-employee', 'HomeController@postSaveEmployee')->name('postSaveEmployee');
+Route::post('/update-employee', 'HomeController@postUpdateEmployee')->name('updateEmployee');
+Route::post('/delete-employee', 'HomeController@postDeleteEmployee')->name('postDeleteEmployee');

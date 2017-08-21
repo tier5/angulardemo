@@ -28,6 +28,6 @@
 	<!--custom js-->
 	<script type="text/javascript" src="{{url('/')}}/js/custom.js"></script>
 </head>
-<body ng-app="myApp" ng-view="" class="container" style="background: #DCDCDC;">
+<body ng-app="myApp" ng-view="" class="container">
 </body>
 </html>
